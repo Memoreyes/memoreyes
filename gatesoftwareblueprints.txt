@@ -1,0 +1,7 @@
+Blueprint of the programs:
+
+Gate.pyc: Program that controls opening and closing of gate- needs password
+Encryptor.py: Library that's imported into the gate program to encrypt password
+led.py: library to control LEDS
+
+END:
