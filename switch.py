@@ -66,9 +66,35 @@ if __name__ == '__main__':
 					print("Rec Face:" + str(ret))
 					speak_name(ret)
 					os.system("aplay output.wav")
+					l.yellow_off()
+					l.green_on()
+					time.sleep(1)
+					l.green_off()
+					print("Done")
+					break
 		if input_stateleft == False:
 			print("Left Button Pressed")
 			time.sleep(1)
+			l.red_on()
+			while True:
+				inp = GPIO.input(left)
+				if inp == False:
+					l.red_off()
+					l.yellow_on()
+					time.sleep(0.3)
+					l.yellow_off()
+					time.sleep(0.3)
+					l.yellow_on()
+					os.system("fswebcam -r 1280x720 imagetag.jpg")
+					time.sleep(2)
+					op = t.get_tags("imagetag.jpg")
+					print(op)
+					l.yellow_off()
+					l.green_on()
+					time.sleep(1)
+					l.green_off()
+					print("Done")
+					break
 		if input_statemiddle == False:
 			print("Middle Button Pressed")
 			time.sleep(1)
